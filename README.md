@@ -1,6 +1,6 @@
 ## Install
 
-npm install git@github.com:sven199109/node-env.git
+npm install --save sven199109/node-env.git
 
 ## Usage
 
