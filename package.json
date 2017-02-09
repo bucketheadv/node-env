@@ -1,0 +1,28 @@
+{
+  "name": "node-env",
+  "version": "0.0.1",
+  "description": "node env",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sven199109/node-env.git"
+  },
+  "keywords": [
+    "node",
+    "process",
+    "env"
+  ],
+  "author": "sven",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sven199109/node-env/issues"
+  },
+  "homepage": "https://github.com/sven199109/node-env#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0"
+  }
+}
