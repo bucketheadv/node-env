@@ -4,33 +4,22 @@ const expect = require('chai').expect
 const nodeEnv = require('../')
 
 describe('index', () => {
-  it('should be development', () => {
-    process.env.NODE_ENV = nodeEnv.DEVELOPMENT
-    expect(nodeEnv.getNodeEnv()).to.eq(nodeEnv.DEVELOPMENT)
+  beforeEach(() => {
+    delete process.env.NODE_ENV
+    nodeEnv.setDefaultEnv('development')
+  })
+  it('should be dev', () => {
+    let dev = 'dev'
+    nodeEnv.setDefaultEnv(dev)
+    expect(nodeEnv.getNodeEnv()).to.eq(dev)
   })
 
-  it('should be test', () => {
-    process.env.NODE_ENV = nodeEnv.TEST
-    expect(nodeEnv.getNodeEnv()).to.eq(nodeEnv.TEST)
+  it('should be development', () => {
+    expect(nodeEnv.isDevelopment()).to.be.true
   })
 
   it('should be production', () => {
-    process.env.NODE_ENV = nodeEnv.PRODUCTION
-    expect(nodeEnv.getNodeEnv()).to.eq(nodeEnv.PRODUCTION)
-  })
-
-  it('should be true with development', () => {
-    process.env.NODE_ENV = nodeEnv.DEVELOPMENT
-    expect(nodeEnv.isDevelopment()).to.eq(true)
-  })
-
-  it('should be true with test', () => {
-    process.env.NODE_ENV = nodeEnv.TEST
-    expect(nodeEnv.isTest()).to.eq(true)
-  })
-
-  it('should be true with production', () => {
-    process.env.NODE_ENV = nodeEnv.PRODUCTION
-    expect(nodeEnv.isProduction()).to.eq(true)
+    process.env.NODE_ENV = 'production'
+    expect(nodeEnv.isProduction()).to.be.true
   })
 })
